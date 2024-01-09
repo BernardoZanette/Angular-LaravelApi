@@ -20,6 +20,7 @@ class UserResource extends JsonResource
             'name' => strtoupper($this->name),
             'email' => $this->email,
             'created' => Carbon::make($this->created_at)->format('Y-m-d'),
+            'message' => 'User created successfully'
         ];
     }
 }
