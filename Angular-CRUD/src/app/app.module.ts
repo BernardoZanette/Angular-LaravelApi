@@ -6,12 +6,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './Pages/Partials/navbar/navbar.component';
-import { LoaderComponent } from './Pages/Partials/loader/loader.component';
+import { UsersPageComponent } from './Pages/users-page/users-page.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoaderComponent
   ],
   imports: [
     AppRoutingModule,
@@ -19,6 +19,7 @@ import { LoaderComponent } from './Pages/Partials/loader/loader.component';
     FormsModule,
     NavbarComponent,
     HttpClientModule,
+    RouterModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

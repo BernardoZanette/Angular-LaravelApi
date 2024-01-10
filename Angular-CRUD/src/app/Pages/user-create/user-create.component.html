@@ -3,31 +3,36 @@
         <div class="card">
             <div class="card-header">
                 <h4>User Create
-                    <a routerLink="/" class="btn btn-danger float-end">Back</a>
+                    <a routerLink="/users" class="btn btn-danger float-end">Back</a>
                 </h4>
             </div>
             <div class="card-body">
                 
-                <form (ngSubmit)="saveUser()">
-                    <div class="mb-3">
-                        <label for="name">Name</label>
-                        <input type="text" [(ngModel)]="name" name="name" placeholder="Type your name..." class="form-control">
-                        <span *ngIf="errors.name" class="text-danger">{{errors.name}}</span>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email">Email</label>
-                        <input type="email" [(ngModel)]="email" name="email" placeholder="Type your email..." class="form-control">
-                        <span *ngIf="errors.email" class="text-danger">{{errors.email}}</span>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password">Password</label>
-                        <input type="password" [(ngModel)]="password" name="password" placeholder="Type your password..." class="form-control">
-                        <span *ngIf="errors.password" class="text-danger">{{errors.password}}</span>
-                    </div>
-                    <div class="mb-3">
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </div>
-                </form>
+                <div *ngIf="isLoading; else elseForm">
+                    <app-loader :title="loadingTitle" />
+                </div>
+                <ng-template #elseForm>
+                    <form (ngSubmit)="saveUser()">
+                        <div class="mb-3">
+                            <label for="name">Name</label>
+                            <input type="text" [(ngModel)]="name" name="name" placeholder="Type your name..." class="form-control">
+                            <span *ngIf="errors.name" class="text-danger">{{errors.name}}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email">Email</label>
+                            <input type="email" [(ngModel)]="email" name="email" placeholder="Type your email..." class="form-control">
+                            <span *ngIf="errors.email" class="text-danger">{{errors.email}}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password">Password</label>
+                            <input type="password" [(ngModel)]="password" name="password" placeholder="Type your password..." class="form-control">
+                            <span *ngIf="errors.password" class="text-danger">{{errors.password}}</span>
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </ng-template>
             </div>
         </div>
     </div>
