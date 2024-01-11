@@ -25,4 +25,12 @@ export class UserService {
     return this.httpClient.get(`http://127.0.0.1:8000/users`);
   }
 
+  getUser(userId: any) {
+    return this.httpClient.get(`http://127.0.0.1:8000/users/${userId}`);
+  }
+
+  updateUser(inputData:any, userId: any) {
+    return this.httpClient.patch(`http://127.0.0.1:8000/users/${userId}`, inputData);
+  }
+
 }

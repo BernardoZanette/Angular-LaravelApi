@@ -1,0 +1,36 @@
+<div>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h4>User Edit
+                    <a routerLink="/users" class="btn btn-danger float-end">Back</a>
+                </h4>
+            </div>
+            <div class="card-body">
+                
+                <div *ngIf="isLoading; else elseForm">
+                    <app-loader :title="loadingTitle" />
+                </div>
+                <ng-template #elseForm>
+                    <form (ngSubmit)="updateUser()">
+                        <div *ngIf="user">
+                            <div class="mb-3">
+                                <label for="name">Name</label>
+                                <input type="text" [(ngModel)]="user.name" name="name" placeholder="Type your name..." class="form-control">
+                                <span *ngIf="errors.name" class="text-danger">{{errors.name}}</span>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email">Email</label>
+                                <input type="email" [(ngModel)]="user.email" name="email" placeholder="Type your email..." class="form-control">
+                                <span *ngIf="errors.email" class="text-danger">{{errors.email}}</span>
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
