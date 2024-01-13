@@ -33,7 +33,12 @@
                                 <td>{{item.updated}}</td>
                                 <td class="d-flex justify-content-center">
                                     <a routerLink="/users/{{item.identify}}/edit" class="btn btn-success">Edit</a>
-                                    <button type="button" class="btn btn-danger ms-2">Delete</button>
+                                    <div class="ms-2">
+                                        <button type="submit" (click)="deleteUser($event, item.identify)"
+                                         class="btn btn-danger">
+                                         Delete
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>

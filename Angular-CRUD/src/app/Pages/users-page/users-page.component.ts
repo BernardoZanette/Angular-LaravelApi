@@ -38,4 +38,18 @@ export class UsersPageComponent {
     });
   }
 
+  deleteUser(event:any, userId:Number) {
+      
+    if(confirm('Are you sure you want to delete this data ?')) {
+      event.target.innerText = "Deleting..."
+
+      this.userService.destroyUser(userId).subscribe((res:any) => {
+        
+        this.getUserLists()
+        
+      }) 
+    }
+
+  }
+
 }

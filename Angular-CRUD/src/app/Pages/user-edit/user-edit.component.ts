@@ -42,19 +42,25 @@ export class UserEditComponent {
     })
 
   }
+  
+  redirect (url : any, asLink = true){
+    asLink ? (window.location.href = url) : window.location.replace(url);
+  }
 
   updateUser() {
     
     var inputData = {
       name: this.user.name,
-      email: this.user.email,
-      password: this.user.password
+      email: this.user.email
     }
+
+    this.isLoading = true;
 
     this.userService.updateUser(inputData, this.userId).subscribe({
       next: (res:any) => {
-        console.log(res)
-        this.isLoading = false
+        console.log(res.data)
+        this.redirect('http://localhost:4200/users');
+        
       },
       error: (err:any) => {
         console.log(err)
@@ -62,7 +68,7 @@ export class UserEditComponent {
         this.isLoading = false
       }
     })
-
   }
 
+  
 }

@@ -33,4 +33,8 @@ export class UserService {
     return this.httpClient.patch(`http://127.0.0.1:8000/users/${userId}`, inputData);
   }
 
+  destroyUser(userId: any) {
+    return this.httpClient.delete(`http://127.0.0.1:8000/users/${userId}`)
+  }
+
 }
